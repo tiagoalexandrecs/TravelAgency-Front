@@ -103,20 +103,20 @@ width: 100vw;
   `
 
   const Picture1= styled.div `
-  background-image: url(https://images.app.goo.gl/1vwHXaACsmYs44Nk9);
+  background-image: url("./images/cidade.jpeg");
   height: 300px;
   width: 150px;
   margin-right: 80px; `;
 
   const Picture2= styled.div `
-  background-image: url(https://images.app.goo.gl/4j6QybS7YvH8ZRRc9);
+  background-image: url("./images/aviao.jpg");
   color: white;
   height: 300px;
   width: 150px;
   margin-right: 80px;`
 
   const Picture3= styled.div `
-  background-image: url(https://images.app.goo.gl/4vZ7sEgy3EKk1YGf7);
+  background-image: url("./images/hotel.jpg");
   color: white;
   height: 300px;
   width: 150px;
