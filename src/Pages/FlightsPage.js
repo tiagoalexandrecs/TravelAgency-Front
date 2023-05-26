@@ -29,7 +29,10 @@ export default function FlightsPage(){
                 <Flights>
                     <Text>Passagens para {city}</Text>
                     <Images>
-                        {available?.map((i) => <Box><Link to={`/flight/${i.id}`}><img></img>
+                        {available?.map((i) => <Box><Link to={`/flight/${i.id}`}><img src={ i.company === "Latam" ? "src/images/logo_latam.jpg" : 
+                        i.company === "Avianca"?  "src/images/avianca.jpg" : 
+                        i.company === "Azul"? "src/images/azul.png" :
+                        i.company === "Gol"? "src/images/gol.png" : "src/images/voepass.jpg"}></img>
                         </Link><Info></Info></Box>)}
                     </Images>
                 </Flights>
