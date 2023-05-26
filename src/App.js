@@ -10,7 +10,6 @@ import HomePage from "./Pages/HomePage";
 
   
   return(
-    <PagesContainer>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage/>} />
@@ -20,7 +19,6 @@ import HomePage from "./Pages/HomePage";
         <Route path="/hotel/:id" element={<HotelDetails/>} />
       </Routes>
     </BrowserRouter>
-  </PagesContainer>
   )
 }
 
