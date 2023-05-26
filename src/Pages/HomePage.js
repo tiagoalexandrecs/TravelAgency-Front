@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import pic1 from "./images/cidade.jpeg"
+import pic2 from "./images/aviao.jpg"
+import pic3 from "./images/hotel.jpg"
 import { useNavigate } from "react-router-dom";
 
 export default function HomePage(){
@@ -12,9 +15,9 @@ export default function HomePage(){
 
     useEffect(() => {
         axios
-          .get(`${process.env.REACT_APP_API_URL}/cities`)
+          .get(`https://travelagency.onrender.com/cities`)
           .then((res) => setCities(res.data))
-          .catch((err) => console.log(err.response.data));
+          .catch((err) => console.log(err.message));
       }, []);
 
     function Procede(){
@@ -34,9 +37,9 @@ export default function HomePage(){
           <Input2 type="submit"/>
         </form>
         <Box>
-            <Picture1> 1. Escolha a cidade que deseja visitar</Picture1>
-            <Picture2> 2. Veja as passagens disponíveis, com preço e data</Picture2>
-            <Picture3> 3. E por fim, busque pelos hóteis disponíveis, e monte seu plano de viagem ideal!</Picture3>
+            <Picture1><img src={pic1} /> 1. Escolha a cidade que deseja visitar</Picture1>
+            <Picture2> <img src={pic2}/>2. Veja as passagens disponíveis, com preço e data</Picture2>
+            <Picture3> <img src={pic3}/>3. E por fim, busque pelos hóteis disponíveis, e monte seu plano de viagem ideal!</Picture3>
         </Box>
         </Container> )
         
@@ -82,9 +85,10 @@ width: 100vw;
   const Input1= styled.input `
   background-color: white;
   color: black;
-  width: 50%;
-  height: 50px;
+  width: 800px;
+  height: 30px;
   margin-top: 100px;
+  margin-left:200px;
   `
 
   const Input2= styled.input `
@@ -92,7 +96,9 @@ width: 100vw;
   color: white;
   width: 50%;
   height: 50px;
-  margin-bottom: 200px;
+  margin-top:50px;
+  margin-bottom: 100px;
+  margin-left:300px;
   `;
 
   const Box= styled.div `
@@ -100,24 +106,34 @@ width: 100vw;
   flex-direction:row;
   justify-content:center;
   align-items: center;
+  width:100%;
   `
 
   const Picture1= styled.div `
-  background-image: url("./images/cidade.jpeg");
+  img{
+    height:200px;
+    width:200px;
+  }
   height: 300px;
-  width: 150px;
+  width: 200px;
   margin-right: 80px; `;
 
   const Picture2= styled.div `
-  background-image: url("./images/aviao.jpg");
-  color: white;
+  img{
+    height:200px;
+    width:200px;
+  }
+  color: black;
   height: 300px;
-  width: 150px;
+  width: 200px;
   margin-right: 80px;`
 
   const Picture3= styled.div `
-  background-image: url("./images/hotel.jpg");
-  color: white;
+  img{
+    height:200px;
+    width:200px;
+  }
+  color: black;
   height: 300px;
-  width: 150px;
+  width: 200px;
   margin-right: 80px; `
