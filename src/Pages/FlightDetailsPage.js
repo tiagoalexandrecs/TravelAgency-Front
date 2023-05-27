@@ -59,6 +59,7 @@ width: 100vw;
       color: inherit;
     }
     h1 {
+      font-family: 'Architects Daughter', cursive;
       font-size: 40px;
       font-weight: 700;
       color: #6cc4b1;

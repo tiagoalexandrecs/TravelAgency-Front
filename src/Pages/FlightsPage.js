@@ -9,11 +9,12 @@ export default function FlightsPage(){
 
     const navigate= useNavigate()
 
-    const {city}= useParams()
+    const {cityId}= useParams()
 
     useEffect(() => {
+      console.log(city)
         axios
-          .get(`${process.env.REACT_APP_API_URL}/flights/${city}`)
+          .get(`https://travelagency.onrender.com/cities/flights/${cityId}`)
           .then((res) => setAvailable(res.data))
           .catch((err) => console.log(err.response.data));
       }, []);
@@ -46,11 +47,11 @@ const Header= styled.header `
 width: 100vw;
   height: 70px;
   position: fixed;
-  background: #ffffff;
+  background: #ffdf00;
   left: 0;
   top: 0;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
   z-index: 1;
   div {
@@ -65,40 +66,46 @@ width: 100vw;
     }
     h1 {
       font-size: 40px;
+      font-family: 'Architects Daughter', cursive;
       font-weight: 700;
-      color: #6cc4b1;
+      color: #009c3b;
       text-align: center;
     }
   }`;
 
-const Container= styled.div `
-background-color: lightblue;
-display: flex;
-flex-direction: column;
-justify-content:center;
-align-items: center;`;
+  const Container= styled.div `
+  background-color: #002776;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;`;
 
 const Container2= styled.div `
 display:flex;
 flex-direction:row;
-justify-content:center;
-align-items: center;
+align-items: top;
+margin-top:62px;
 `
 
 const Filters= styled.div `
-height: 100%;
-width: 20%;`;
+height: 600px;
+width: 300px;
+background-color: lightblue;
+z-index:1;
+margin-right: 730px;`;
 
 const Flights= styled.div `
-height: 100%;
-width:80%;
+
 display:flex;
 flex-direction: column;
 `;
 
 const Text= styled.div `
-margin-top: 100px;
-margin-bottom: 50px;`;
+
+font-family: 'Architects Daughter', cursive;
+font-size: 20px;
+color: white;
+`;
 
 const Images= styled.div`
 overflow: scroll;

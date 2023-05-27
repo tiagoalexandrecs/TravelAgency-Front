@@ -13,9 +13,9 @@ import HomePage from "./Pages/HomePage";
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/flights/:city" element={<FlightsPage/>} />
+        <Route path="/flights/:cityId" element={<FlightsPage/>} />
         <Route path="/flight/:id" element={<FlightDetails/>} />
-        <Route path="/hotels/:city" element={<HotelsPage/>} />
+        <Route path="/hotels/:cityId" element={<HotelsPage/>} />
         <Route path="/hotel/:id" element={<HotelDetails/>} />
       </Routes>
     </BrowserRouter>
