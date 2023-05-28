@@ -18,19 +18,18 @@ export default function HomePage(){
           .get(`https://travelagency.onrender.com/cities`)
           .then((res) => setCities(res.data))
           .catch((err) => console.log(err.message));
+
       }, []);
 
     function Procede(){
-      let a=0
-      for(let i=0; i< cities.rows.length; i++){
+      console.log(cities)
+      for(let i=0; i< cities.length; i++){
         if (cities[i].name === chosen){
           navigate(`/flights/${cities[i].id}`)
-          let a=1
         }
       }
-      if (a === 0){
-        alert("Por favor, selecione um dos destinos disponíveis :)")
-      }
+        //alert("Por favor, selecione um dos destinos disponíveis :)")
+      
     }
 
       return(

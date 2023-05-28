@@ -5,32 +5,32 @@ import { useNavigate , Link, useParams} from "react-router-dom";
 
 export default function FlightDetails(){
 
-    const [details, setDetails]= useState([])
+    const [details, setDetails]= useState({})
 
     const {id}= useParams()
 
     useEffect(() => {
         axios
-          .get(`${process.env.REACT_APP_API_URL}/flights/${id}`)
-          .then((res) => setDetails(res.data))
-          .catch((err) => console.log(err.response.data));
+          .get(`https://travelagency.onrender.com/flight/${id}`)
+          .then((res) => {setDetails(res.data); console.log(res.data)})
+          .catch((err) => console.log(err.message));
       }, []);
 
     return (
         <Container>
             <Header>
                 <div><h1>Viagens Alucinantes</h1></div>
-                <Return><Link to={`/flights/${details[0].origin}`}><h1>VOLTAR</h1></Link></Return>
+                <Return><Link to={`/flights/${details[1]?.rows[0].id}`}><h2>VOLTAR</h2></Link></Return>
             </Header>
             <Info>
-                <Text>Passagem para {details[0].destiny}</Text>
+                <Text>Passagem para {details[0]?.destiny}</Text>
                 <Details>
-                    <Text2>Cidade de Destino: {details[0].destiny}</Text2>
-                    <Text2>Cidade de Partida: {details[0].origin}</Text2>
-                    <Text2>Companhia Aérea:{details[0].company}</Text2>
-                    <Text2>Horário de partida: {details[0].takeoff}</Text2>
-                    <Text2>Horário de chegada: {details[0].arrival}</Text2>
-                    <Text2>Preço da Passagem: {details[0].price}</Text2>
+                  <Container2><Text2>Cidade de Destino:          {details[0]?.destiny}</Text2></Container2>
+                  <Container2><Text2>Cidade de Partida:          {details[0]?.origin}</Text2></Container2>
+                  <Container2><Text2>Companhia Aérea:            {details[0]?.company}</Text2></Container2>
+                  <Container2><Text2>Horário de partida:         {details[0]?.takeoff}</Text2></Container2>
+                  <Container2><Text2>Horário de chegada:         {details[0]?.arrival}</Text2></Container2>
+                  <Container2>  <Text2>Preço da Passagem:          {details[0]?.price}</Text2></Container2>
                 </Details>
             </Info>
         </Container>
@@ -41,11 +41,11 @@ const Header= styled.header `
 width: 100vw;
   height: 70px;
   position: fixed;
-  background: #ffffff;
+  background: #ffdf00;
   left: 0;
   top: 0;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
   z-index: 1;
   div {
@@ -59,16 +59,26 @@ width: 100vw;
       color: inherit;
     }
     h1 {
-      font-family: 'Architects Daughter', cursive;
       font-size: 40px;
+      font-family: 'Architects Daughter', cursive;
       font-weight: 700;
-      color: #6cc4b1;
+      color: #009c3b;
       text-align: center;
+      margin-left:370px;
+    }
+    h2{
+      font-size: 20px;
+      font-family: 'Architects Daughter', cursive;
+      font-weight: 700;
+      color: #009c3b;
+      text-align: center;
+      margin-left:200px;
     }
   }`;
 
   const Container= styled.div `
-background-color: lightblue;
+background-color: #002776;
+height: 800px;
 display: flex;
 flex-direction: column;
 justify-content:center;
@@ -82,8 +92,11 @@ align-items:center;
 `;
 
 const Text= styled.div `
-margin-top: 100px;
-margin-bottom: 50px;`;
+margin-bottom: 5px;
+font-family: 'Architects Daughter', cursive;
+ font-weight: 700;
+ font-size: 40px;
+ color: white;`;
 
 const Details= styled.div `
 display:flex;
@@ -92,7 +105,19 @@ justify-content: space-between;
 `;
 
 const Return= styled.div `
-margin-left: 60%;`
+margin-left: 100px;`
 
 const Text2= styled.div `
-`
+font-family: 'Architects Daughter', cursive;
+ font-weight: 700;
+ color: black;
+ font-size: 35px;
+ margin-left: 30px;
+`;
+
+const Container2= styled.div `
+margin-top: 20px;
+width: 800px;
+border-radius: 8px;
+box-shadow: 10px 10px 5px lightblue;
+background: white;`
