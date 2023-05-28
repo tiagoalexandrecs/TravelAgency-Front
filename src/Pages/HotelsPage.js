@@ -45,9 +45,10 @@ export default function HotelsPage(){
 
   useEffect(() => {
       axios
-        .get(`https://travelagency.onrender.com/flights/${cityId}`)
+        .get(`https://travelagency.onrender.com/hotels/${cityId}`)
         .then((res) => {
           setAvailable(res.data)
+          console.log(res.data)
           setBase(res.data)})
         .catch((err) => console.log(err.message));
     }, []);
@@ -60,7 +61,7 @@ export default function HotelsPage(){
         }
     }
     setAvailable(expo)
-  console.log(expo)}
+  console.log(expo[0])}
 
     return(
       <Container>
