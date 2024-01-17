@@ -18,6 +18,7 @@ export default function HomePage(){
           .get(`https://travelagency.onrender.com/cities`)
           .then((res) => setCities(res.data))
           .catch((err) => console.log(err.message));
+        console.log(cities);
 
       }, []);
 
@@ -98,7 +99,7 @@ width: 100vw;
   width: 800px;
   height: 30px;
   margin-top: 100px;
-  margin-left:250px;
+  margin-left:150px;
   `
 
   const Input2= styled.input `
@@ -108,7 +109,7 @@ width: 100vw;
   height: 50px;
   margin-top:50px;
   margin-bottom: 100px;
-  margin-left:350px;
+  margin-left:270px;
   font-family: 'Architects Daughter', cursive;
   font-size: 20px;
   `;
